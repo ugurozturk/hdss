@@ -16,6 +16,8 @@ class Home extends Controller
      */
     public function index()
     {
+        $pics = $this->model->getAllPics();
+
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/index.php';

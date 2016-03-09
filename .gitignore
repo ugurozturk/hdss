@@ -17,6 +17,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Custom Folders to ignore
+config/
+
 # =========================
 # Operating System Files
 # =========================
@@ -44,4 +47,7 @@ $RECYCLE.BIN/
 .AppleDesktop
 Network Trash Folder
 Temporary Items
+
 .apdisk
+application/config/config.php
+application/config/config.php
