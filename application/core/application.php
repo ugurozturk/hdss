@@ -58,6 +58,7 @@ class Application
         } else {
             header('location: ' . URL . 'error');
         }
+
     }
 
     /**
