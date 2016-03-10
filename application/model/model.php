@@ -150,8 +150,8 @@ class Model
         $listed[$file] = URL . $value;
       }
 
-      $imgs = array_slice($imgs, 0, 20);
-      return $imgs;
+      $listed = array_slice($listed, 0, 20);
+      return $listed;
 
     }
 }
