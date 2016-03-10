@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Admin extends Controller
 {
   public function index()
@@ -20,6 +18,15 @@ if(isset($_SESSION['uyeGrup'])
     require APP . 'view/admin/index.php';
     require APP . 'view/_templates/footer.php';
   }
+
+
+  public function listimages(){
+    $pics = $this->model->listimages();
+
+    require APP . 'view/_templates/header.php';
+    require APP . 'view/admin/listimages.php';
+    require APP . 'view/_templates/footer.php';
+}
 
   public function yukle(){
     if(!empty($_FILES['files']['name'][0])){
@@ -50,19 +57,26 @@ if(isset($_SESSION['uyeGrup'])
               $uploaded[$pozisyon] = $file_destination;
             }
             else {
-              $failed[$pozisyon] = '[{$file_name}] hata verdi'; 
+              $failed[$pozisyon] = '[{$file_name}] hata verdi';
             }
-
           }
           else {
-
+            $failed[$pozisyon] = '[{$file_name}] İzin verilen dosya boyutundan büyük';
           }
 
         }
         else {
+          $failed[$pozisyon] = '[{$file_name}] izin verilen dosya tipi değil.';
+        }
+
+
+        if(!empty($failed)){
+          echo "Hatalı Dosyalar";
+          print_r($failed);
         }
 
         if(!empty($uploaded)){
+          echo "Upload Edilen Dosyalar";
           print_r($uploaded);
         }
       }

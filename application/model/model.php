@@ -116,16 +116,16 @@ class Model
     /**
      * Get simple "stats". This is just a simple demo to show
      * how to use more than one model in a controller (see application/controller/songs.php for more)
-     */
-    public function getAmountOfSongs()
-    {
-        $sql = "SELECT COUNT(id) AS amount_of_songs FROM song";
-        $query = $this->db->prepare($sql);
-        $query->execute();
-
-        // fetch() is the PDO method that get exactly one result
-        return $query->fetch()->amount_of_songs;
-    }
+     *
+     *  public function getAmountOfSongs()
+     *  {
+     *      $sql = "SELECT COUNT(id) AS amount_of_songs FROM song";
+     *      $query = $this->db->prepare($sql);
+     *      $query->execute();
+     *
+     *        // fetch() is the PDO method that get exactly one result
+     *      return $query->fetch()->amount_of_songs;
+     *}*/
 
 
     /**
@@ -136,11 +136,22 @@ class Model
         $sql = "SELECT pic_id, pic_name, big_url, thumbs_url FROM pics";
         $query = $this->db->prepare($sql);
         $query->execute();
-
-        // fetchAll() is the PDO method that gets all result rows, here in object-style because we defined this in
-        // core/controller.php! If you prefer to get an associative array as the result, then do
-        // $query->fetchAll(PDO::FETCH_ASSOC); or change core/controller.php's PDO options to
-        // $options = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC ...
         return $query->fetchAll();
+    }
+
+    public function listimages(){
+
+      $directory = "img/thumbs/*";
+      $images = glob("" . $directory . "*.{[jJ][pP][gG],[pP][nN][gG],[gG][iI][fF]}",GLOB_BRACE);
+
+      $listed = array();
+
+      foreach ($images as $file => $value) {
+        $listed[$file] = URL . $value;
+      }
+
+      $imgs = array_slice($imgs, 0, 20);
+      return $imgs;
+
     }
 }
