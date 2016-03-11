@@ -133,7 +133,7 @@ class Model
      */
     public function getAllPics()
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url FROM pics";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics";
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
@@ -152,6 +152,19 @@ class Model
 
       $listed = array_slice($listed, 0, 20);
       return $listed;
+    }
 
+    public function getImageInfo($deger){
+      $sql = "SELECT pic_id, pic_name, big_url, thumbs_url FROM pics WHERE pic_id =  :deger ";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':deger' => $deger);
+
+      // useful for debugging: you can see the SQL behind above construction by using:
+      // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+      $query->execute($parameters);
+
+      // fetch() is the PDO method that get exactly one result
+      return $query->fetch();
     }
 }

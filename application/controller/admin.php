@@ -21,11 +21,25 @@ if(isset($_SESSION['uyeGrup'])
 
 
   public function listimages(){
-    $pics = $this->model->listimages();
+    $pics = $this->model->getAllPics();
 
     require APP . 'view/_templates/header.php';
     require APP . 'view/admin/listimages.php';
     require APP . 'view/_templates/footer.php';
+}
+
+public function getImageInfo($deger){
+  $sql = "SELECT pic_id, pic_name, big_url, thumbs_url FROM pics WHERE pic_id =  :deger ";
+  $query = $this->db->prepare($sql);
+  $parameters = array(':deger' => $deger);
+
+  // useful for debugging: you can see the SQL behind above construction by using:
+  // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+  $query->execute($parameters);
+
+  // fetch() is the PDO method that get exactly one result
+  return $query->fetch();
 }
 
   public function yukle(){
