@@ -53,7 +53,7 @@ public function getImageInfo($deger){
 
       foreach ($files['name'] as $pozisyon => $file_name) {
 
-        $file_temp = $files['tmp_name'][$pozisyon];
+        $file_bigtemp = $files['tmp_name'][$pozisyon];
         $file_size = $files['size'][$pozisyon];
         $file_error = $files['error'][$pozisyon];
 
@@ -63,13 +63,15 @@ public function getImageInfo($deger){
 
         if(in_array($file_ext, $allowed)){
 
-          if($file_size <= 999999){
+          if($file_size <= 9999999){
             $file_name_new = uniqid('',true) . '.' . $file_ext;
-            $file_destination = 'img/' . $file_name_new;
+            $file_destination = 'img/big/' . $file_name_new;
+            $file_scaledv = 'img/thumbs/' . $file_name_new;
 
-            if(move_uploaded_file($file_temp, $file_destination)) {
+            if(move_uploaded_file($file_bigtemp, $file_destination)) {
               $uploaded[$pozisyon] = $file_destination;
-            }
+               $this->model->resize($file_destination,$file_ext);
+          }
             else {
               $failed[$pozisyon] = '[{$file_name}] hata verdi';
             }

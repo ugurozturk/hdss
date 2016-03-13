@@ -167,4 +167,57 @@ class Model
       // fetch() is the PDO method that get exactly one result
       return $query->fetch();
     }
+
+    function resize($img,$imgext){
+
+      //only if you script on another folder get the file name
+      $r =explode("/",$img);
+      $name=end($r);
+
+      //new folder
+      $vdir_upload = "img/thumbs/";
+      list($width_orig, $height_orig) = getimagesize($img);
+      //ne size
+
+
+      $dst_height = $height_orig/3;
+      $dst_width = $width_orig/3;
+      $im = imagecreatetruecolor($dst_width,$dst_height);
+
+      switch ($imgext) {
+        case 'png':
+          $image = imagecreatefrompng($img);
+          break;
+        case 'jpg':
+          $image = imagecreatefromjpeg($img);
+        break;
+          case 'gif':
+            $image = imagecreatefromgif($img);
+        break;
+        default:
+        # code...
+        break;
+      }
+
+      imagecopyresampled($im, $image, 0, 0, 0, 0, $dst_width, $dst_height, $width_orig, $height_orig);
+      //modive the name as u need
+
+      switch ($imgext) {
+        case 'png':
+          imagepng($im,$vdir_upload . $name);
+          break;
+        case 'jpg':
+          imagejpeg($im,$vdir_upload . $name);
+          break;
+        case 'gif':
+          imagegif($im,$vdir_upload . $name);
+          break;
+        default:
+          # code...
+          break;
+        }
+        //save memory
+    imagedestroy($im);
+  }
+
 }
