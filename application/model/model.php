@@ -139,6 +139,21 @@ class Model
         return $query->fetchAll();
     }
 
+    public function addImg($img)
+    {
+      $r =explode("/",$img);
+      $namewext = end($r);
+      $name= explode(".",$namewext)[0];
+        $sql = "INSERT INTO pics (pic_name, size, big_url, thumbs_url,pic_category_id,pic_owner_id,user_id) VALUES (:imgname, 150,:imgnamewextbig,:imgnamewextthmp,1, 1,1)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':imgname' => $name, ':imgnamewextbig' => "img/big/". $namewext, ':imgnamewextthmp' => "img/thumbs/".$namewext);
+
+        // useful for debugging: you can see the SQL behind above construction by using:
+        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+        $query->execute($parameters);
+    }
+
     public function listimages(){
 
       $directory = "img/thumbs/*";
@@ -178,7 +193,6 @@ class Model
       $vdir_upload = "img/thumbs/";
       list($width_orig, $height_orig) = getimagesize($img);
       //ne size
-
 
       $dst_height = $height_orig/3;
       $dst_width = $width_orig/3;

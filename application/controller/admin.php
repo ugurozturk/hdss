@@ -85,15 +85,11 @@ public function getImageInfo($deger){
           $failed[$pozisyon] = '[{$file_name}] izin verilen dosya tipi değil.';
         }
 
-
-        if(!empty($failed)){
-          echo "Hatalı Dosyalar";
-          print_r($failed);
-        }
-
         if(!empty($uploaded)){
           echo "Upload Edilen Dosyalar";
-          print_r($uploaded);
+          foreach ($uploaded as $key => $value) {
+            $this->model->addImg($value);
+          }
         }
       }
     }
