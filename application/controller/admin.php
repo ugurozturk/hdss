@@ -4,16 +4,7 @@ class Admin extends Controller
 {
   public function index()
   {
-
-/*
-if(isset($_SESSION['uyeGrup'])
-    {
-
-
-    }
-
-*/
-   // load views. within the views we can echo out $songs and $amount_of_songs easily
+    
     require APP . 'view/_templates/header.php';
     require APP . 'view/admin/index.php';
     require APP . 'view/_templates/footer.php';

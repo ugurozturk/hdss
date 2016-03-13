@@ -1,3 +1,11 @@
+body {
+    background-color: #333;
+}
+
 .cnav{
   padding-bottom: .5em;
+}
+
+tbody,form{
+  background-color: #e6e6e6;
 }
