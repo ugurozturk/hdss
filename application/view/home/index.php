@@ -1,5 +1,5 @@
 <div class="container-fluid" >
-<div id="gallery" style="display:none;">
+<div id="gallery">
 
 <?php foreach ($pics as $pic) { ?>
 
@@ -18,14 +18,24 @@
 
 	<script type="text/javascript">
 
-		jQuery(document).ready(function(){
+		$(document).ready(function(){
 
-			jQuery("#gallery").unitegallery({
-	tile_enable_textpanel:true,
-	tile_textpanel_title_text_align: "center",
-	tile_textpanel_always_on:true,
-	tiles_type: "nested",
-		});
+      $("#gallery").unitegallery({
+        gallery_theme: "tiles",				//choose gallery theme (if more then one themes includes)
+        gallery_width:"100%",				//gallery width
+        gallery_min_width: 350,				//gallery minimal width when resizing
+        gallery_background_color: "",
+        tiles_type: "nested",					//must option for the tiles - justified type
+		 			tiles_enable_transition: true,			//enable transition when screen width change
+					tiles_space_between_cols: 3,			//space between images
+					tiles_space_between_cols_mobile: 3,     //space between cols for mobile type
+		 			tiles_nested_optimal_tile_width: 470,	// tiles optimal width
+					tiles_min_columns: 2,					//min columns - for mobile size, for 1 column, type 1
+          tile_enable_textpanel: true,		 	//enable textpanel
+					tile_textpanel_source: "title",		 	//title,desc,desc_title. source of the textpanel. desc_title - if description empty, put title
+					tile_textpanel_always_on: true,	 	//textpanel always visible
+					tile_textpanel_appear_type: "slide", 	//slide, fade - appear type of the textpanel on mouseover
+					});
 
 		});
 
