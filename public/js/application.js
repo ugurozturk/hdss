@@ -36,4 +36,12 @@ $(function() {
         });
     }
 
+    $('#savebtn').on('click',function(){
+
+      console.log('buton çalıştı');
+
+
+    });
+
+
 });

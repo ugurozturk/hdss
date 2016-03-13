@@ -48,38 +48,81 @@
         <div class="container-fluid bd-example-row">
           <div class="row">
             <div class="col-md-4" id="img"></div>
-            <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+            <div class="col-md-7">
+                <div class="form-group">
+                  <label for="picnameinmodel"><strong>Adı :</strong></label>
+                  <input type="name" class="form-control" id="picnameinmodel" placeholder="Adını Girin" />
+                </div>
+                <div class="form-group">
+                  <label for="picsizeinmodel"><strong>Boyutu : </strong></label>
+                  <label id="picsizeinmodel" ></label>
+                </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" >
+              <div class="form-group">
+                <label for="picbigurlinmodel"><strong>Big Url : </strong></label>
+                  <input type="name" class="form-control" id="picbigurlinmodel" placeholder="Url Adresi" />
+              </div>
+              <div class="form-group">
+                <label for="picthmburlinmodel"><strong>Thumb Url : </strong></label>
+                <input type="name" class="form-control" id="picthmburlinmodel" placeholder="Url Adresi" />
+              </div>
+              <div class="checkbox" >
+                <label id="picstatuslabelinmodel">
+                  <input type="checkbox" id="picstatusinmodel" /> Statü
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-        <button type="button" class="btn btn-primary">Kaydet</button>
+        <button type="button" class="btn btn-primary" id="savebtn">Kaydet</button>
       </div>
     </div>
   </div>
 </div>
 <?php
-$modele = array();
+/*$modele = array();
 $deger = array_filter($pics,function($obj) {
   if(isset($obj->pic_id)){
     if($obj->pic_id == 1 ) { print_r($obj); return true; }
     return false;
   }
-});
-
-print_r($deger);?>
+});*/?>
 </div>
-
-<script type="text/javascript">
-
+<script>
 function editModalShow(id){
 console.log("function editModal çalıştı.");
-"<?php print_r($modele); ?>"
 
+$.ajax({
+  type: "POST",
+  url: url + "admin/ajaxGetinfo/"+id,
+  dataType: 'json',
+  success: function(data){
+    $('#editModal #img').html("<img src='"+url+data.thumbs_url+"'class='img-rounded' height='150' width='150'></img>");
+    $('#picnameinmodel').val(data.pic_name);
+    $('#picsizeinmodel').html(data.size);
+    $('#picbigurlinmodel').val(data.big_url);
+    $('#picthmburlinmodel').val(data.thumbs_url);
+    if(data.aktif == 1){
+      $('#picstatusinmodel').prop('checked', true);
+    }
+    else {
+      $('#picstatusinmodel').prop('checked', false);
+    }
+  },
+  error: function(data){
+    console.log(data);
+  }
 
+});
 
-//$('#editModal #img').html()
+//
 
 
   $('#editModal').modal('show');

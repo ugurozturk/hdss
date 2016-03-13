@@ -17,6 +17,9 @@
   	<link rel="stylesheet" href="<?php echo URL; ?>assets/unitegallery/css/unite-gallery.css" type="text/css" />
 
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script>
+        var url = "<?php echo URL; ?>";
+    </script>
 </head>
 <body>
 

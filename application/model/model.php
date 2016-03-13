@@ -134,9 +134,29 @@ class Model
     public function getAllPics()
     {
         $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics";
+
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
+    }
+
+    public function getAllActivePics()
+    {
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true";
+
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+    public function getPicInfo($id)
+    {
+        $sql = "SELECT pic_id,size, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE pic_id = :pcid LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':pcid' => $id);
+
+        $query->execute($parameters);
+        return $query->fetch();
     }
 
     public function addImg($img)

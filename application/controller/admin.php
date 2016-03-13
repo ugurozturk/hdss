@@ -86,7 +86,6 @@ public function getImageInfo($deger){
         }
 
         if(!empty($uploaded)){
-          echo "Upload Edilen Dosyalar";
           foreach ($uploaded as $key => $value) {
             $this->model->addImg($value);
           }
@@ -94,4 +93,13 @@ public function getImageInfo($deger){
       }
     }
   }
+
+  public function ajaxGetinfo($imgid)
+  {
+      $imginfos = $this->model->getPicInfo($imgid);
+
+      // simply echo out something. A supersimple API would be possible by echoing JSON here
+      echo json_encode($imginfos);
+  }
+
 }
