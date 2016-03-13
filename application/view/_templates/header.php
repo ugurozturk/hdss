@@ -22,10 +22,7 @@
     </script>
 </head>
 <body>
-
-
-
-
+  
   <div class="container-fluid cnav">
     <!-- navigation -->
     <nav class="navbar navbar-dark bg-inverse">

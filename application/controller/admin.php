@@ -2,26 +2,39 @@
 
 class Admin extends Controller
 {
+
+
+  public function checkGrup(){
+      if(isset($_SESSION['uye_grup']) != 1){
+        header('location: ' . URL);
+      }
+      else{
+        return true;
+      }
+  }
+
   public function index()
   {
-    
+    if($this->checkGrup()){
     require APP . 'view/_templates/header.php';
     require APP . 'view/admin/index.php';
     require APP . 'view/_templates/footer.php';
-
+}
 
   }
 
-
   public function listimages(){
+      if($this->checkGrup()){
     $pics = $this->model->getAllPics();
 
     require APP . 'view/_templates/header.php';
     require APP . 'view/admin/listimages.php';
     require APP . 'view/_templates/footer.php';
+  }
 }
 
 public function getImageInfo($deger){
+  if($this->checkGrup()){
   $sql = "SELECT pic_id, pic_name, big_url, thumbs_url FROM pics WHERE pic_id =  :deger ";
   $query = $this->db->prepare($sql);
   $parameters = array(':deger' => $deger);
@@ -34,8 +47,10 @@ public function getImageInfo($deger){
   // fetch() is the PDO method that get exactly one result
   return $query->fetch();
 }
+}
 
   public function yukle(){
+    if($this->checkGrup()){
     if(!empty($_FILES['files']['name'][0])){
       $files = $_FILES['files'];
 
@@ -77,28 +92,32 @@ public function getImageInfo($deger){
         else {
           $failed[$pozisyon] = '[{$file_name}] izin verilen dosya tipi değil.';
         }
-
-        if(!empty($uploaded)){
-          foreach ($uploaded as $key => $value) {
-            $this->model->addImg($value);
-          }
+      }
+      if(!empty($uploaded)){
+        foreach ($uploaded as $key => $value) {
+          $this->model->addImg($value);
         }
+        print_r($uploaded);
       }
     }
+  }
   }
 
   public function ajaxGetinfo($imgid)
   {
+    if($this->checkGrup()){
       $imginfos = $this->model->getPicInfo($imgid);
 
       // simply echo out something. A supersimple API would be possible by echoing JSON here
       echo json_encode($imginfos);
+    }
   }
 
   public function updateImg()
   {
+    if($this->checkGrup()){
       $this->model->updateImg($_POST["picid"],$_POST["picname"], $_POST['picbigurl'],  $_POST['picthmburl'], $_POST['aktif']);
-
+}
 
   }
 

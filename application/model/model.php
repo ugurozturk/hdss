@@ -266,4 +266,18 @@ class Model
       $query->execute($parameters);
   }
 
+  public function findUser($username,$psswrd){
+    $sql = "SELECT * FROM user WHERE username = :username AND password = :password ";
+    $query = $this->db->prepare($sql);
+    $parameters = array(':username' => $username, ':password' => $psswrd);
+
+    // useful for debugging: you can see the SQL behind above construction by using:
+    // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+    $query->execute($parameters);
+
+    // fetch() is the PDO method that get exactly one result
+    return $query->fetch();
+  }
+
 }
