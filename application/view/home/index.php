@@ -30,7 +30,7 @@
 					tiles_space_between_cols: 3,			//space between images
 					tiles_space_between_cols_mobile: 3,     //space between cols for mobile type
 		 			tiles_nested_optimal_tile_width: 470,	// tiles optimal width
-					tiles_min_columns: 2,					//min columns - for mobile size, for 1 column, type 1
+					tiles_min_columns: 1,					//min columns - for mobile size, for 1 column, type 1
           tile_enable_textpanel: true,		 	//enable textpanel
 					tile_textpanel_source: "title",		 	//title,desc,desc_title. source of the textpanel. desc_title - if description empty, put title
 					tile_textpanel_always_on: true,	 	//textpanel always visible
