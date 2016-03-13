@@ -36,11 +36,27 @@ $(function() {
         });
     }
 
+//TODO Ayarlanacak
     $('#savebtn').on('click',function(){
+      $.ajax({
+        type: "POST",
+        url: url + "admin/updateImg/",
+        dataType: 'json',
+        data : {
+          picid:$("#picidinmodel").val(),
+          picname:  $('#picnameinmodel').val(),
+          picbigurl: $('#picbigurlinmodel').val(),
+          picthmburl: $('#picthmburlinmodel').val(),
+          aktif:  $('#picstatusinmodel').prop('checked')
+        },
+        success: function(data){
 
-      console.log('buton çalıştı');
+        },
+        error: function(data){
+          console.log(data);
+        }
 
-
+      });
     });
 
 

@@ -19,7 +19,6 @@ class Songs extends Controller
     {
         // getting all songs and amount of songs
         $songs = $this->model->getAllSongs();
-        $amount_of_songs = $this->model->getAmountOfSongs();
 
        // load views. within the views we can echo out $songs and $amount_of_songs easily
         require APP . 'view/_templates/header.php';
@@ -92,7 +91,7 @@ class Songs extends Controller
             header('location: ' . URL . 'songs/index');
         }
     }
-    
+
     /**
      * ACTION: updateSong
      * This method handles what happens when you move to http://yourproject/songs/updatesong

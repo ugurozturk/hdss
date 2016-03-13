@@ -1,3 +1,4 @@
+<div type="hidden" id="picidinmodel" />
 <div class="container-fluid">
 
   <table class="table">
@@ -98,7 +99,7 @@ $deger = array_filter($pics,function($obj) {
 <script>
 function editModalShow(id){
 console.log("function editModal çalıştı.");
-
+$("#picidinmodel").val(id);
 $.ajax({
   type: "POST",
   url: url + "admin/ajaxGetinfo/"+id,

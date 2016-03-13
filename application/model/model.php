@@ -254,4 +254,16 @@ class Model
     imagedestroy($im);
   }
 
+  public function updateImg($picid, $picname, $picbigurl, $picthmburl, $aktif)
+  {
+      $sql = "UPDATE pics SET pic_name = :picname, big_url = :picbigurl, thumbs_url = :picthmpurl, aktif = $aktif WHERE pic_id = :pic_id";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':picname' => $picname, ':picbigurl' => $picbigurl, ':picthmpurl' => $picthmburl, ':pic_id' => $picid);
+
+      // useful for debugging: you can see the SQL behind above construction by using:
+      //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+      $query->execute($parameters);
+  }
+
 }

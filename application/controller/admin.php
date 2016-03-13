@@ -17,6 +17,8 @@ if(isset($_SESSION['uyeGrup'])
     require APP . 'view/_templates/header.php';
     require APP . 'view/admin/index.php';
     require APP . 'view/_templates/footer.php';
+
+
   }
 
 
@@ -100,6 +102,13 @@ public function getImageInfo($deger){
 
       // simply echo out something. A supersimple API would be possible by echoing JSON here
       echo json_encode($imginfos);
+  }
+
+  public function updateImg()
+  {
+      $this->model->updateImg($_POST["picid"],$_POST["picname"], $_POST['picbigurl'],  $_POST['picthmburl'], $_POST['aktif']);
+
+
   }
 
 }
