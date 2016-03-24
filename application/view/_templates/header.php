@@ -22,14 +22,14 @@
     </script>
 </head>
 <body>
-  
+
   <div class="container-fluid cnav">
     <!-- navigation -->
     <nav class="navbar navbar-dark bg-inverse">
     <a class="navbar-brand" href="<?php echo URL; ?>">HD Screen Shots</a>
     <ul class="nav navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Forum</a>
+        <a class="nav-link" href="http://forum.hdss.online/">Forum</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Random</a>
