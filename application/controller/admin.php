@@ -25,13 +25,22 @@ class Admin extends Controller
 
   public function listimages(){
       if($this->checkGrup()){
-    $pics = $this->model->getAllPics();
+
+      if(isset($_GET["limit"]) && isset($_GET["offset"])){
+        $pics = $this->model->getAllPics($_GET["limit"],$_GET["offset"]);
+      }
+      else{
+        $pics = $this->model->getAllPics(20,0);
+      }
+
+      $imageAmount = $this->model->getAmountOfImages();
 
     require APP . 'view/_templates/header.php';
     require APP . 'view/admin/listimages.php';
     require APP . 'view/_templates/footer.php';
   }
 }
+
 
 public function getImageInfo($deger){
   if($this->checkGrup()){

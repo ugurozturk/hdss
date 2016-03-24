@@ -128,21 +128,33 @@ class Model
      *}*/
 
 
+        public function getAmountOfImages()
+        {
+            $sql = "SELECT COUNT(pic_id) AS amount_of_images FROM pics";
+            $query = $this->db->prepare($sql);
+            $query->execute();
+
+             // fetch() is the PDO method that get exactly one result
+           return $query->fetch()->amount_of_songs;
+        }
+
     /**
      * Get all pictures from database
      */
-    public function getAllPics()
+    public function getAllPics($limit,$offset)
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics LIMIT $limit OFFSET $offset";
 
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
 
+
+
     public function getAllActivePics()
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true LIMIT 30";
 
         $query = $this->db->prepare($sql);
         $query->execute();
