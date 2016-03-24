@@ -9,3 +9,9 @@ body {
 tbody{
   background-color: #e6e6e6;
 }
+thead>tr>th{
+ border-top: none !important;
+}
+.row>form{
+  margin: 10px 0 20px 20px;
+}

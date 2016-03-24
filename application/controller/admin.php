@@ -26,8 +26,8 @@ class Admin extends Controller
   public function listimages(){
       if($this->checkGrup()){
 
-      if(isset($_GET["limit"]) && isset($_GET["offset"])){
-        $pics = $this->model->getAllPics($_GET["limit"],$_GET["offset"]);
+      if(isset($_POST["limit"]) && isset($_POST["offset"])){
+        $pics = $this->model->getAllPics($_POST["limit"],$_POST["offset"]);
       }
       else{
         $pics = $this->model->getAllPics(20,0);

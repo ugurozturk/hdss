@@ -1,6 +1,15 @@
 <div type="hidden" id="picidinmodel" />
 <div class="container-fluid">
+  <div class="row">
+    <form class="form-inline" action="<?php echo URL . 'admin/listimages'; ?>" method="post">
+    <input type="text" class="form-control" id="limitinputid" name="limit" placeholder="Limit" value="<?php if(isset($_POST['limit'])){echo $_POST['limit']; } else {echo 20;} ?>">
+    <input type="text" class="form-control" id="offsetinputid" name="offset" placeholder="Offset" value="<?php if(isset($_POST['offset'])){echo $_POST['offset']; } else {echo 0;} ?>">
+  <button type="submit" class="btn btn-primary">Refresh</button>
+  <h3 style="color:white">Total Image Amount<span class="label label-default"><?php echo $imageAmount; ?></span></h3>
+</form>
 
+
+  </div>
   <table class="table">
     <thead class="thead-inverse">
       <tr>
@@ -80,6 +89,7 @@
           </div>
         </div>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
         <button type="button" class="btn btn-primary" id="savebtn">Kaydet</button>
@@ -87,14 +97,8 @@
     </div>
   </div>
 </div>
-<?php
-/*$modele = array();
-$deger = array_filter($pics,function($obj) {
-  if(isset($obj->pic_id)){
-    if($obj->pic_id == 1 ) { print_r($obj); return true; }
-    return false;
-  }
-});*/?>
+
+
 </div>
 <script>
 function editModalShow(id){

@@ -135,7 +135,7 @@ class Model
             $query->execute();
 
              // fetch() is the PDO method that get exactly one result
-           return $query->fetch()->amount_of_songs;
+           return $query->fetch()->amount_of_images;
         }
 
     /**

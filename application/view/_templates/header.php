@@ -12,7 +12,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
+
     <link rel="stylesheet" href="<?php echo URL; ?>assets/tether/css/tether.min.css" type="text/css" />
   	<link rel="stylesheet" href="<?php echo URL; ?>assets/unitegallery/css/unite-gallery.css" type="text/css" />
 
@@ -20,6 +20,7 @@
     <script>
         var url = "<?php echo URL; ?>";
     </script>
+    <link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
 </head>
 <body>
 
