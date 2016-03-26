@@ -17,7 +17,7 @@ class Home extends Controller
     public function index()
     {
       if(isset($_GET["random"]) && isset($_GET["search"])){
-
+        $pics = $this->model->getSearchedRandomPics(htmlspecialchars($_GET["search"]));
       }
       else if(isset($_GET["random"])){
         if(htmlspecialchars($_GET["random"]) === "true"){

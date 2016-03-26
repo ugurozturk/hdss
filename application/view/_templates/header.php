@@ -33,14 +33,14 @@
         <a class="nav-link" href="http://forum.hdss.online/">Forum</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo URL . "?random=true"?>">Random</a>
+        <a class="nav-link" href="<?php echo URL . "?random=true"; if(isset($_GET["search"])){ echo "&search=" . htmlspecialchars($_GET["search"]);} ?>">Random</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>
     </ul>
-    <form class="form-inline pull-xs-right">
-      <input class="form-control" type="text" placeholder="Search">
+    <form class="form-inline pull-xs-right" action="<?php URL ?>" method="link">
+      <input class="form-control" type="text" name="search" placeholder="Search" value="<?php if(isset($_GET["search"])){ echo htmlspecialchars($_GET["search"]);} ?>">
       <button class="btn btn-info-outline" type="submit">Search</button>
     </form>
   </nav>
