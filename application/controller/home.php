@@ -16,8 +16,23 @@ class Home extends Controller
      */
     public function index()
     {
-        $pics = $this->model->getAllActivePics();
+      if(isset($_GET["random"]) && isset($_GET["search"])){
 
+      }
+      else if(isset($_GET["random"])){
+        if(htmlspecialchars($_GET["random"]) === "true"){
+          $pics = $this->model->getAllActiveRandomPics();
+        }
+        else{
+          $pics = $this->model->getAllActivePics();
+        }
+      }
+      else if(isset($_GET["search"])){
+          $pics = $this->model->getSearchedPics(htmlspecialchars($_GET["search"]));
+      }
+      else{
+          $pics = $this->model->getAllActivePics();
+      }
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/index.php';

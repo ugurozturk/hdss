@@ -150,8 +150,6 @@ class Model
         return $query->fetchAll();
     }
 
-
-
     public function getAllActivePics()
     {
         $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true LIMIT 30";
@@ -159,6 +157,38 @@ class Model
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
+    }
+    public function getAllActiveRandomPics()
+    {
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true";
+
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        $dizi = $query->fetchAll();
+        shuffle($dizi);
+        return array_slice($dizi,0,30,true);
+    }
+
+    public function getSearchedPics($search)
+    {
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true "
+        . "And pic_name like '%$search%'";
+
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
+
+    public function getSearchedRandomPics($search)
+    {
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true "
+        . "And pic_name like '%$search%'";
+
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        $dizi = $query->fetchAll();
+        shuffle($dizi);
+        return array_slice($dizi,0,30,true);
     }
 
     public function getPicInfo($id)

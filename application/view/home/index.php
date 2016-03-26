@@ -21,7 +21,7 @@
 		$(document).ready(function(){
 
       $("#gallery").unitegallery({
-        theme_appearance_order: "shuffle",	
+        theme_appearance_order: "shuffle",
         gallery_theme: "tiles",				//choose gallery theme (if more then one themes includes)
         gallery_width:"100%",				//gallery width
         gallery_min_width: 350,				//gallery minimal width when resizing

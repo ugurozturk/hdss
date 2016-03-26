@@ -33,7 +33,7 @@
         <a class="nav-link" href="http://forum.hdss.online/">Forum</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Random</a>
+        <a class="nav-link" href="<?php echo URL . "?random=true"?>">Random</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
