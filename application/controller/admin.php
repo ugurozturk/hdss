@@ -6,7 +6,7 @@ class Admin extends Controller
 
   public function checkGrup(){
       if(isset($_SESSION['uye_grup']) != 1){
-        header('location: ' . URL);
+        header('location: ' . URL .'login');
       }
       else{
         return true;

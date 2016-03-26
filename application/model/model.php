@@ -143,7 +143,7 @@ class Model
      */
     public function getAllPics($limit,$offset)
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics LIMIT $limit OFFSET $offset";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics ORDER BY pic_id DESC LIMIT $limit OFFSET $offset";
 
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -152,7 +152,7 @@ class Model
 
     public function getAllActivePics()
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true LIMIT 30";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true ORDER BY pic_id DESC LIMIT 30";
 
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -160,7 +160,7 @@ class Model
     }
     public function getAllActiveRandomPics()
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true ORDER BY pic_id DESC";
 
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -171,7 +171,7 @@ class Model
 
     public function getSearchedPics($search)
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true "
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true ORDER BY pic_id DESC "
         . "And pic_name like '%$search%'";
 
         $query = $this->db->prepare($sql);
@@ -181,7 +181,7 @@ class Model
 
     public function getSearchedRandomPics($search)
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true "
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true ORDER BY pic_id DESC "
         . "And pic_name like '%$search%'";
 
         $query = $this->db->prepare($sql);
