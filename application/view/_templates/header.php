@@ -27,6 +27,10 @@
   <div class="container-fluid cnav">
     <!-- navigation -->
     <nav class="navbar navbar-dark bg-inverse">
+      <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
+    &#9776;
+  </button>
+  <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
     <a class="navbar-brand" href="<?php echo URL; ?>">HD Screen Shots</a>
     <ul class="nav navbar-nav">
       <li class="nav-item">
@@ -43,5 +47,9 @@
       <input class="form-control" type="text" name="search" placeholder="Search" value="<?php if(isset($_GET["search"])){ echo htmlspecialchars($_GET["search"]);} ?>">
       <button class="btn btn-info-outline" type="submit">Search</button>
     </form>
+    </div>
+</div>
   </nav>
+
+
 </div>
