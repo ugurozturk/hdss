@@ -2,8 +2,6 @@
 
 class Admin extends Controller
 {
-
-
   public function checkGrup(){
       if(isset($_SESSION['uye_grup']) != 1){
         header('location: ' . URL .'login');
@@ -75,7 +73,6 @@ public function getImageInfo($deger){
         $file_error = $files['error'][$pozisyon];
 
         $file_ext = explode('.', $file_name);
-
         $file_ext = strtolower(end($file_ext));
 
         if(in_array($file_ext, $allowed)){

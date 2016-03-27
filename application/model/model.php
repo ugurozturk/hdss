@@ -17,6 +17,22 @@ class Model
     /**
      * Get all songs from database
      */
+    public function logla()
+    {
+        $sql = "INSERT INTO log (log_ayrinti) VALUES (:ayrinti)";
+        $query = $this->db->prepare($sql);
+
+        $parameters = array(':ayrinti' => "Deneme");
+
+        // useful for debugging: you can see the SQL behind above construction by using:
+        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+        $query->execute($parameters);
+
+    }
+    /**
+     * Get all songs from database
+     */
     public function getAllSongs()
     {
         $sql = "SELECT id, artist, track, link FROM song";
@@ -171,8 +187,8 @@ class Model
 
     public function getSearchedPics($search)
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true ORDER BY pic_id DESC "
-        . "And pic_name like '%$search%'";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true AND pic_name like '%$search%' ORDER BY pic_id DESC";
+
 
         $query = $this->db->prepare($sql);
         $query->execute();
