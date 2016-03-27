@@ -50,10 +50,27 @@ $(function() {
           aktif:  $('#picstatusinmodel').prop('checked')
         },
         success: function(data){
-
+          $('#editModal').modal('toggle');
+          $.notify({
+            icon: 'glyphicon glyphicon-success-sign',
+	          title: 'HDSS -',
+	          message: 'Success of changing image informations.',
+          },{
+            type: 'success',
+            newest_on_top: true
+          });
         },
         error: function(data){
+          console.log("error >");
           console.log(data);
+          $.notify({
+            icon: 'glyphicon glyphicon-success-sign',
+	          title: 'HDSS -',
+	          message: 'Success of changing image informations.',
+          },{
+            type: 'danger',
+            newest_on_top: true
+          });
         }
 
       });

@@ -126,8 +126,7 @@ public function getImageInfo($deger){
   {
     if($this->checkGrup()){
       $this->model->updateImg($_POST["picid"],$_POST["picname"], $_POST['picbigurl'],  $_POST['picthmburl'], $_POST['aktif']);
-}
-
+      echo json_encode(array('Result' => "OK"));
+    }
   }
-
 }
