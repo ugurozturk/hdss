@@ -25,7 +25,7 @@
 
     <tbody>
   <?php foreach ($pics as $key => $value) { ?>
-    <tr><th scope="row"><?php echo $key; ?></th>
+    <tr><th scope="row"><?php echo $value->pic_id; ?></th>
       <td><img src="<?php echo URL.$value->thumbs_url; ?>" class="img-rounded" height="150" width="150"></td>
       <td><?php echo $value->pic_name; ?></td>
       <td><?php echo $value->big_url; ?></td>
