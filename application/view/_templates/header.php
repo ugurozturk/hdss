@@ -28,7 +28,7 @@
     <!-- navigation -->
     <nav class="navbar navbar-dark bg-inverse">
       <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2">
-    &#9776;
+    ☰
   </button>
   <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
     <a class="navbar-brand" href="<?php echo URL; ?>">HD Screen Shots</a>
