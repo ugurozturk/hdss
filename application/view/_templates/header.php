@@ -43,10 +43,18 @@
         <a class="nav-link" href="#">About</a>
       </li>
     </ul>
+
+
     <form class="form-inline pull-xs-right" action="<?php URL ?>" method="link">
       <input class="form-control" type="text" name="search" placeholder="Search" value="<?php if(isset($_GET["search"])){ echo htmlspecialchars($_GET["search"]);} ?>">
       <button class="btn btn-info-outline" type="submit">Search</button>
     </form>
+    <form class="form-inline pull-xs-right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="MJKQXF29S7FW2">
+<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypalobjects.com/tr_TR/i/scr/pixel.gif" width="1" height="1">
+</form>
     </div>
 </div>
   </nav>
