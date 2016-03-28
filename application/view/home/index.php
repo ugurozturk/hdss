@@ -21,6 +21,7 @@
   $(document).ready(function(){
 
     $("#gallery").unitegallery({
+      theme_enable_preloader: true,
 					gallery_theme: "tiles",
           gallery_width:"100%",
 		 			tiles_type: "justified",
