@@ -16,12 +16,15 @@
     <link rel="stylesheet" href="<?php echo URL; ?>assets/tether/css/tether.min.css" type="text/css" />
   	<link rel="stylesheet" href="<?php echo URL; ?>assets/unitegallery/css/unite-gallery.css" type="text/css" />
 
+
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
     <script src="<?php echo URL; ?>assets/jquery/jquery-2.2.1.min.js"></script>
+    
+    <script type="text/javascript" src="<?php echo URL; ?>assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script>
         var url = "<?php echo URL; ?>";
     </script>
-    <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" type="text/css" />
-    <link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
 </head>
 <body>
 

@@ -69,7 +69,9 @@
                 </div>
                 <div class="form-group">
                   <label for="datetimepickerid"><strong>Yayın Tarihi : </strong></label>
-                  <label id="datetimepickerid" ></label>
+                  <div class="input-group date">
+                    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                  </div>
                 </div>
 
             </div>
@@ -130,10 +132,14 @@ $.ajax({
   }
 
 });
-
 //
-
-
   $('#editModal').modal('show');
 }
+
+$(document).ready(function(){
+$('.input-group.date').datepicker({
+    format: 'dd-mm-yyyy',
+    startDate: '-3d',
+});
+});
 </script>
