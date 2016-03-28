@@ -6,7 +6,7 @@ body {
   padding-bottom: .5em;
 }
 
-tbody{
+.table tbody{
   background-color: #e6e6e6;
 }
 thead>tr>th{
