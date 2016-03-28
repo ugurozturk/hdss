@@ -47,6 +47,7 @@ $(function() {
           picname:  $('#picnameinmodel').val(),
           picbigurl: $('#picbigurlinmodel').val(),
           picthmburl: $('#picthmburlinmodel').val(),
+          yayin_tarih: $('#datetimepickerid').val(),
           aktif:  $('#picstatusinmodel').prop('checked')
         },
         success: function(data){
@@ -66,7 +67,7 @@ $(function() {
           $.notify({
             icon: 'glyphicon glyphicon-success-sign',
 	          title: 'HDSS -',
-	          message: 'Success of changing image informations.',
+	          message: 'Başarısız Güncelleme İsteği.',
           },{
             type: 'danger',
             newest_on_top: true

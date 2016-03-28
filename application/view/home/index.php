@@ -25,6 +25,7 @@
 					gallery_theme: "tiles",
           gallery_width:"100%",
 		 			tiles_type: "justified",
+          tiles_justified_space_between:7,
           tiles_justified_row_height: 350,
           tiles_set_initial_height: true,		//columns type related only
 		 			tiles_enable_transition: true,

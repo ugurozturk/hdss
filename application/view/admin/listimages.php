@@ -70,7 +70,7 @@
                 <div class="form-group">
                   <label for="datetimepickerid"><strong>Yayın Tarihi : </strong></label>
                   <div class="input-group date">
-                    <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    <input type="text" class="form-control" id="datetimepickerid"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                   </div>
                 </div>
 
@@ -115,11 +115,13 @@ $.ajax({
   url: url + "admin/ajaxGetinfo/"+id,
   dataType: 'json',
   success: function(data){
+    var tarihdizi = data.yayin_tarihi.split("-");
     $('#editModal #img').html("<img src='"+url+data.thumbs_url+"'class='img-rounded' height='150' width='150'></img>");
     $('#picnameinmodel').val(data.pic_name);
     $('#picsizeinmodel').html(data.size);
     $('#picbigurlinmodel').val(data.big_url);
     $('#picthmburlinmodel').val(data.thumbs_url);
+    $('.input-group.date').datepicker("update",new Date(tarihdizi[0],tarihdizi[1] -1,tarihdizi[2]));
     if(data.aktif == 1){
       $('#picstatusinmodel').prop('checked', true);
     }
@@ -139,7 +141,6 @@ $.ajax({
 $(document).ready(function(){
 $('.input-group.date').datepicker({
     format: 'dd-mm-yyyy',
-    startDate: '-3d',
 });
 });
 </script>

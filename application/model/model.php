@@ -159,24 +159,24 @@ class Model
      */
     public function getAllPics($limit,$offset)
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics ORDER BY pic_id DESC LIMIT $limit OFFSET $offset";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, yayin_tarihi, aktif FROM pics ORDER BY pic_id DESC LIMIT $limit OFFSET $offset";
 
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
 
-    public function getAllActivePics()
+    public function getAllActivePics()//Var
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true ORDER BY pic_id DESC LIMIT 30";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC LIMIT 30";
 
         $query = $this->db->prepare($sql);
         $query->execute();
         return $query->fetchAll();
     }
-    public function getAllActiveRandomPics()
+    public function getAllActiveRandomPics()//Var
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true ORDER BY pic_id DESC";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC";
 
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -185,9 +185,9 @@ class Model
         return array_slice($dizi,0,30,true);
     }
 
-    public function getSearchedPics($search)
+    public function getSearchedPics($search)//Var
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true AND pic_name like '%$search%' ORDER BY pic_id DESC";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND pic_name AND yayin_tarihi <= CURDATE() like '%$search%' ORDER BY pic_id DESC";
 
 
         $query = $this->db->prepare($sql);
@@ -195,9 +195,9 @@ class Model
         return $query->fetchAll();
     }
 
-    public function getSearchedRandomPics($search)
+    public function getSearchedRandomPics($search)//Var
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE aktif = true ORDER BY pic_id DESC "
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC "
         . "And pic_name like '%$search%'";
 
         $query = $this->db->prepare($sql);
@@ -209,7 +209,7 @@ class Model
 
     public function getPicInfo($id)
     {
-        $sql = "SELECT pic_id,size, pic_name, big_url, thumbs_url, aktif FROM pics  WHERE pic_id = :pcid LIMIT 1";
+        $sql = "SELECT pic_id,size, pic_name, big_url, thumbs_url, yayin_tarihi, aktif FROM pics  WHERE pic_id = :pcid LIMIT 1";
         $query = $this->db->prepare($sql);
         $parameters = array(':pcid' => $id);
 
@@ -312,11 +312,12 @@ class Model
     imagedestroy($im);
   }
 
-  public function updateImg($picid, $picname, $picbigurl, $picthmburl, $aktif)
+  public function updateImg($picid, $picname, $picbigurl, $picthmburl, $yayin_tarih, $aktif)
   {
-      $sql = "UPDATE pics SET pic_name = :picname, big_url = :picbigurl, thumbs_url = :picthmpurl, aktif = $aktif WHERE pic_id = :pic_id";
+      $sql = "UPDATE pics SET pic_name = :picname, big_url = :picbigurl, thumbs_url = :picthmpurl, yayin_tarihi = :tarih, aktif = $aktif WHERE pic_id = :pic_id";
       $query = $this->db->prepare($sql);
-      $parameters = array(':picname' => $picname, ':picbigurl' => $picbigurl, ':picthmpurl' => $picthmburl, ':pic_id' => $picid);
+      $parameters = array(':picname' => $picname, ':picbigurl' => $picbigurl, ':picthmpurl' => $picthmburl, ':pic_id' => $picid,
+      ':tarih' =>  date('Y-m-d',strtotime($yayin_tarih)));
 
       // useful for debugging: you can see the SQL behind above construction by using:
       //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
