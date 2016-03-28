@@ -20,6 +20,7 @@
     <script>
         var url = "<?php echo URL; ?>";
     </script>
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
 </head>
 <body>

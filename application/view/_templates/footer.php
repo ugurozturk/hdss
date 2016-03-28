@@ -14,7 +14,7 @@
 <script type="text/javascript" src="<?php echo URL; ?>assets/unitegallery/js/unitegallery.min.js"></script>
 <script type="text/javascript" src="<?php echo URL; ?>assets/unitegallery/themes/tiles/ug-theme-tiles.js"></script>
 <script type="text/javascript" src="<?php echo URL; ?>assets/bootstrap-notify-313/bootstrap-notify.min.js"></script>
-
+<script type="text/javascript" src="<?php echo URL; ?>assets/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

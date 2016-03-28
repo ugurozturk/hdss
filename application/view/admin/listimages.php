@@ -67,6 +67,10 @@
                   <label for="picsizeinmodel"><strong>Boyutu : </strong></label>
                   <label id="picsizeinmodel" ></label>
                 </div>
+                <div class="form-group">
+                  <label for="datetimepickerid"><strong>Yayın Tarihi : </strong></label>
+                  <label id="datetimepickerid" ></label>
+                </div>
 
             </div>
           </div>
