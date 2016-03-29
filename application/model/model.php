@@ -222,7 +222,7 @@ class Model
       $r =explode("/",$img);
       $namewext = end($r);
       $name= explode(".",$namewext)[0];
-        $sql = "INSERT INTO pics (pic_name, size, big_url, thumbs_url,pic_category_id,pic_owner_id,user_id) VALUES (:imgname, 150,:imgnamewextbig,:imgnamewextthmp,1, 1,1)";
+        $sql = "INSERT INTO pics (pic_name, size, big_url, thumbs_url,pic_category_id,pic_owner_id,user_id,yayin_tarihi) VALUES (:imgname, 150,:imgnamewextbig,:imgnamewextthmp,1, 1,1,CURDATE())";
         $query = $this->db->prepare($sql);
         $parameters = array(':imgname' => $name, ':imgnamewextbig' => "img/big/". $namewext, ':imgnamewextthmp' => "img/thumbs/".$namewext);
 

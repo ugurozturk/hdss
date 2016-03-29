@@ -5,6 +5,8 @@
     <title>Online HD Screen Shot</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:image" content="https://s3.eu-central-1.amazonaws.com/hdss/fbekran.png"/>
+<meta property="og:image:secure_url" content="https://s3.eu-central-1.amazonaws.com/hdss/fbekran.png" />
     <!-- JS -->
     <!-- please note: The JavaScript files are loaded in the footer to speed up page construction -->
     <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
@@ -20,7 +22,7 @@
     <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
     <script src="<?php echo URL; ?>assets/jquery/jquery-2.2.1.min.js"></script>
-    
+
     <script type="text/javascript" src="<?php echo URL; ?>assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script>
         var url = "<?php echo URL; ?>";
