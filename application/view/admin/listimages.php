@@ -26,7 +26,7 @@
     <tbody>
   <?php foreach ($pics as $key => $value) { ?>
     <tr><th scope="row"><?php echo $value->pic_id; ?></th>
-      <td><img src="<?php echo URL.$value->thumbs_url; ?>" class="img-rounded" height="150" width="150"></td>
+      <td><img src="<?php echo $value->thumbs_url; ?>" class="img-rounded" height="150" width="150"></td>
       <td><?php echo $value->pic_name; ?></td>
       <td><?php echo $value->big_url; ?></td>
       <td><?php echo $value->thumbs_url; ?></td>
@@ -116,7 +116,7 @@ $.ajax({
   dataType: 'json',
   success: function(data){
     var tarihdizi = data.yayin_tarihi.split("-");
-    $('#editModal #img').html("<img src='"+url+data.thumbs_url+"'class='img-rounded' height='150' width='150'></img>");
+    $('#editModal #img').html("<img src='"+data.thumbs_url+"'class='img-rounded' height='150' width='150'></img>");
     $('#picnameinmodel').val(data.pic_name);
     $('#picsizeinmodel').html(data.size);
     $('#picbigurlinmodel').val(data.big_url);

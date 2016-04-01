@@ -5,8 +5,8 @@
 
   <a href="<?php echo URL; ?>">
   <img alt="<?php if (isset($pic->pic_name)) echo htmlspecialchars($pic->pic_name, ENT_QUOTES, 'UTF-8'); ?>"
-       src="<?php echo URL; if (isset($pic->thumbs_url)) echo htmlspecialchars($pic->thumbs_url, ENT_QUOTES, 'UTF-8'); ?>"
-       data-image="<?php echo URL; if (isset($pic->big_url)) echo htmlspecialchars($pic->big_url, ENT_QUOTES, 'UTF-8'); ?>"
+       src="<?php if (isset($pic->thumbs_url)) echo htmlspecialchars($pic->thumbs_url, ENT_QUOTES, 'UTF-8'); ?>"
+       data-image="<?php if (isset($pic->big_url)) echo htmlspecialchars($pic->big_url, ENT_QUOTES, 'UTF-8'); ?>"
        data-description="<?php if (isset($pic->pic_name)) echo htmlspecialchars($pic->pic_name, ENT_QUOTES, 'UTF-8'); ?>"
        style="display:none">
   </a>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <title>Online HD Screen Shot</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta property="og:image" content="https://s3.eu-central-1.amazonaws.com/hdss/fbekran.png"/>
 <meta property="og:image:secure_url" content="https://s3.eu-central-1.amazonaws.com/hdss/fbekran.png" />
     <!-- JS -->
@@ -17,10 +17,9 @@
 
     <link rel="stylesheet" href="<?php echo URL; ?>assets/tether/css/tether.min.css" type="text/css" />
   	<link rel="stylesheet" href="<?php echo URL; ?>assets/unitegallery/css/unite-gallery.css" type="text/css" />
-
-
     <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/font-awesome/css/font-awesome.min.css" type="text/css" />
     <script src="<?php echo URL; ?>assets/jquery/jquery-2.2.1.min.js"></script>
 
     <script type="text/javascript" src="<?php echo URL; ?>assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
@@ -39,7 +38,7 @@
   <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
     <a class="navbar-brand" href="<?php echo URL; ?>">HD Screen Shots</a>
     <ul class="nav navbar-nav">
-      <li class="nav-item">
+      <li  class="nav-item">
         <a class="nav-link" href="http://forum.hdss.online/">Forum</a>
       </li>
       <li class="nav-item">
@@ -49,18 +48,21 @@
         <a class="nav-link" href="#">About</a>
       </li>
     </ul>
-
-
     <form class="form-inline pull-xs-right" action="<?php URL ?>" method="link">
       <input class="form-control" type="text" name="search" placeholder="Search" value="<?php if(isset($_GET["search"])){ echo htmlspecialchars($_GET["search"]);} ?>">
       <button class="btn btn-info-outline" type="submit">Search</button>
     </form>
-    <form class="form-inline pull-xs-right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="MJKQXF29S7FW2">
-<input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
-<img alt="" border="0" src="https://www.paypalobjects.com/tr_TR/i/scr/pixel.gif" width="1" height="1">
-</form>
+<!-- social media icons -->
+      <ul class="nav navbar-nav pull-right">
+          <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/hdssonline/"><i class="fa fa-lg fa-facebook"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/hdssonline/"><i class="fa fa-lg fa-instagram"></i></a></li>
+      </ul>
+      <form class="form-inline pull-xs-right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+  <input type="hidden" name="cmd" value="_s-xclick">
+  <input type="hidden" name="hosted_button_id" value="MJKQXF29S7FW2">
+  <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+  <img alt="" border="0" src="https://www.paypalobjects.com/tr_TR/i/scr/pixel.gif" width="1" height="1">
+  </form>
     </div>
 </div>
   </nav>
