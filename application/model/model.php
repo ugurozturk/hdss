@@ -187,7 +187,7 @@ class Model
 
     public function getSearchedPics($search)//Var
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND pic_name AND yayin_tarihi <= CURDATE() like '%$search%' ORDER BY pic_id DESC";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND pic_name like '%$search%' AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC";
 
 
         $query = $this->db->prepare($sql);
@@ -197,8 +197,8 @@ class Model
 
     public function getSearchedRandomPics($search)//Var
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC "
-        . "And pic_name like '%$search%'";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND  pic_name like '%$search%' AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC  ";
+
 
         $query = $this->db->prepare($sql);
         $query->execute();
