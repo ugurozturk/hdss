@@ -168,7 +168,7 @@ class Model
 
     public function getAllActivePics()//Var
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC LIMIT 30";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY yayin_tarihi DESC LIMIT 30";
 
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -176,7 +176,7 @@ class Model
     }
     public function getAllActiveRandomPics()//Var
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY yayin_tarihi DESC";
 
         $query = $this->db->prepare($sql);
         $query->execute();

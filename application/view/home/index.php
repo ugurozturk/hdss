@@ -10,7 +10,7 @@
 
 var icerik = [
 <?php foreach ($pics as $pic) {
-  echo '{ src:"'.$pic->big_url.'",srct:"'.$pic->thumbs_url.'",title:"'.$pic->pic_name.'"},';
+  echo '{ src:"'.$pic->big_url.'",srct:"'.$pic->thumbs_url.'",title:"'.$pic->pic_name.'",destURL:"'.URL.'image?i='.$pic->pic_id.'"},';
   } ?>
 ];
 

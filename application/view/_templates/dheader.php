@@ -5,9 +5,10 @@
     <title>Online HD Screen Shot</title>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
+    <?php if(isset($meta)){echo $meta;} else { ?>
     <meta property="og:image" content="https://s3.eu-central-1.amazonaws.com/hdss/fbekran.png"/>
     <meta property="og:image:secure_url" content="https://s3.eu-central-1.amazonaws.com/hdss/fbekran.png" />
+    <?php }?>
     <!-- JS -->
     <!-- please note: The JavaScript files are loaded in the footer to speed up page construction -->
     <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
