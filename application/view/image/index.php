@@ -1,5 +1,6 @@
 <div class="container" >
-  <img src="<?php echo $img->big_url; ?>" class="img-fluid" alt="<?php echo $img->pic_name; ?>">
+
+  <a><img style="max-height:650px;" src="<?php echo $img->big_url; ?>" class="img-fluid center-block" alt="<?php echo $img->pic_name; ?>"></a>
 
 
 <div id="disqus_thread"></div>
