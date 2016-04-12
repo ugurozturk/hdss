@@ -18,10 +18,11 @@
 
     <!-- our JavaScript -->
     <script src="<?php echo URL; ?>js/application.js"></script>
-
+    <script src="<?php echo URL; ?>js/disqus.js"></script>
+    <script id="dsq-count-scr" src="//hdssonline.disqus.com/count.js" async></script>
     <script type="text/javascript" src="<?php echo URL; ?>assets/tether/js/tether.min.js"></script>
     <script src="<?php echo URL; ?>assets/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php echo URL; ?>assets/nanogallery/jquery.nanogallery.min.js"></script>
+<script type="text/javascript" src="<?php echo URL; ?>assets/nanogallery/jquery.nanogallery.js"></script>
 <script type="text/javascript" src="<?php echo URL; ?>assets/bootstrap-notify-313/bootstrap-notify.min.js"></script>
 
 <script>

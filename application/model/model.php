@@ -217,6 +217,16 @@ class Model
         return $query->fetch();
     }
 
+    public function getPicInfoByName($name)
+    {
+        $sql = "SELECT pic_id,size, pic_name, big_url, thumbs_url, yayin_tarihi, aktif FROM pics  WHERE pic_name = :pcname LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':pcname' => $name);
+
+        $query->execute($parameters);
+        return $query->fetch();
+    }
+
     public function addImg($img)
     {
       $r =explode("/",$img);
@@ -247,19 +257,6 @@ class Model
       return $listed;
     }
 
-    public function getImageInfo($deger){
-      $sql = "SELECT pic_id, pic_name, big_url, thumbs_url FROM pics WHERE pic_id =  :deger ";
-      $query = $this->db->prepare($sql);
-      $parameters = array(':deger' => $deger);
-
-      // useful for debugging: you can see the SQL behind above construction by using:
-      // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-
-      $query->execute($parameters);
-
-      // fetch() is the PDO method that get exactly one result
-      return $query->fetch();
-    }
 
     function resize($img,$imgext){
 

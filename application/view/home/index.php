@@ -1,9 +1,4 @@
 <div class="container-fluid" >
-<div id="gallery">
-
-
-
-</div>
 
 <div id="nanoGallery">
   </div>
@@ -21,8 +16,10 @@ var icerik = [
 
     $("#nanoGallery").nanoGallery({
         	items:icerik,
-          thumbnailHeight: '450',
-          thumbnailWidth: 'auto',
+          thumbnailHeight:'450',
+          thumbnailWidth:'auto',
+          thumbnailDisplayInterval: 25,
+          thumbnailDisplayTransition: true,
           thumbnailHoverEffect: 'none',
           theme:'light',
           thumbnailGutterWidth:6,
