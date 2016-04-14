@@ -1,10 +1,8 @@
 <!-- CSS -->
 <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous" />
 <link rel="stylesheet" href="<?php echo URL; ?>assets/tether/css/tether.min.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo URL; ?>assets/nanogallery/css/nanogallery.min.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo URL; ?>assets/justfiedgallery/css/justifiedGallery.min.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo URL; ?>assets/nanogallery/css/themes/clean/nanogallery_clean.min.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo URL; ?>assets/nanogallery/css/themes/light/nanogallery_light.min.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" type="text/css" />
 
 <link rel="stylesheet" href="<?php echo URL; ?>assets/font-awesome/css/font-awesome.min.css" type="text/css" />
@@ -17,12 +15,12 @@
 
 
     <!-- our JavaScript -->
-    <script src="<?php echo URL; ?>js/application.js"></script>
+    
     <script src="<?php echo URL; ?>js/disqus.js"></script>
     <script id="dsq-count-scr" src="//hdssonline.disqus.com/count.js" async></script>
     <script type="text/javascript" src="<?php echo URL; ?>assets/tether/js/tether.min.js"></script>
     <script src="<?php echo URL; ?>assets/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php echo URL; ?>assets/nanogallery/jquery.nanogallery.js"></script>
+
 <script type="text/javascript" src="<?php echo URL; ?>assets/bootstrap-notify-313/bootstrap-notify.min.js"></script>
 
 <script>

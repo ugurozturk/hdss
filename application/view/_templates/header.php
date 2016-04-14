@@ -14,8 +14,9 @@
 
 
     <script src="<?php echo URL; ?>assets/jquery/jquery-2.2.1.min.js"></script>
-
+<script type="text/javascript" src="<?php echo URL; ?>assets/justfiedgallery/js/jquery.justifiedGallery.js"></script>
     <script type="text/javascript" src="<?php echo URL; ?>assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="<?php echo URL; ?>js/application.js"></script>
     <script>
         var url = "<?php echo URL; ?>";
     </script>

@@ -39,6 +39,13 @@ class Home extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
+
+
+    public function devamigetir(){
+      $veri = $this->model->getNextActivePics();
+      echo json_encode($veri);
+    }
+
     /**
      * PAGE: exampleone
      * This method handles what happens when you move to http://yourproject/home/exampleone

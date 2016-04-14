@@ -79,3 +79,38 @@ $(function() {
 
 
 });
+
+function doldur(){
+  $(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+  $.ajax({
+    type: "POST",
+    url: url + "home/devamigetir/",
+    dataType: 'json',
+    data : {
+    },
+    success: function(data){
+      console.log("doldur success");
+      $.each(data,function(index,value){
+        $('#gallery').append('<a href="'+url +'image?i='+ value.pic_id+'">' +
+            '<img src="'+value.thumbs_url+'" />' +
+            '</a>');
+      });
+      $('#gallery').justifiedGallery('norewind');
+    },
+    error: function(data){
+      console.log("error >");
+      console.log(data);
+      $.notify({
+        icon: 'glyphicon glyphicon-success-sign',
+        title: 'HDSS -',
+        message: 'Başarısız Getirme İsteği.',
+      },{
+        type: 'danger',
+        newest_on_top: true
+      });
+    }
+  });
+}
+});
+}

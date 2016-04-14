@@ -174,6 +174,14 @@ class Model
         $query->execute();
         return $query->fetchAll();
     }
+    public function getNextActivePics()//Var
+    {
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY yayin_tarihi DESC LIMIT 30";
+
+        $query = $this->db->prepare($sql);
+        $query->execute();
+        return $query->fetchAll();
+    }
     public function getAllActiveRandomPics()//Var
     {
         $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY yayin_tarihi DESC";
