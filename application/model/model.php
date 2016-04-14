@@ -87,6 +87,8 @@ class Model
         $query->execute($parameters);
     }
 
+
+
     /**
      * Get a song from database
      */
@@ -305,6 +307,18 @@ class Model
 
       // useful for debugging: you can see the SQL behind above construction by using:
       //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+      $query->execute($parameters);
+  }
+
+  public function deleteImg($img_id)
+  {
+      $sql = "DELETE FROM pics WHERE pic_id = :pic_id";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':pic_id' => $img_id);
+
+      // useful for debugging: you can see the SQL behind above construction by using:
+      // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
 
       $query->execute($parameters);
   }

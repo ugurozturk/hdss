@@ -110,4 +110,12 @@ class Admin extends Controller
       echo json_encode(array('Result' => "OK"));
     }
   }
+
+  public function delImg()
+  {
+    if($this->checkGrup()){
+      $this->model->deleteImg($_POST["picid"]);
+      echo json_encode(array('Result' => "OK"));
+    }
+  }
 }

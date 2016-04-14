@@ -38,6 +38,7 @@ $(function() {
 
 //TODO Ayarlanacak
     $('#savebtn').on('click',function(){
+
       $.ajax({
         type: "POST",
         url: url + "admin/updateImg/",
@@ -75,6 +76,55 @@ $(function() {
         }
 
       });
+    });
+
+    $('button[islev="sil"]').on('click',function(){
+      console.log("del Çalıştı");
+
+      if(confirm("Are you sure ?")){
+    var deger =  $(this).attr("id").substr(3);
+    $.ajax({
+      type: "POST",
+      url: url + "admin/delImg/",
+      dataType: 'json',
+      data : {
+        picid:deger
+      },
+      success: function(data){
+        $.notify({
+          icon: 'glyphicon glyphicon-success-sign',
+          title: 'HDSS -',
+          message: 'Success of deleting image.',
+        },{
+          type: 'success',
+          newest_on_top: true
+        });
+      },
+      error: function(data){
+        console.log("error >");
+        console.log(data);
+        $.notify({
+          icon: 'glyphicon glyphicon-success-sign',
+          title: 'HDSS -',
+          message: 'Failed to delete.',
+        },{
+          type: 'danger',
+          newest_on_top: true
+        });
+      }
+
+    });
+    }
+    else {
+      $.notify({
+        icon: 'glyphicon glyphicon-success-sign',
+        title: 'HDSS -',
+        message: 'Safely Canseled.',
+      },{
+        type: 'success',
+        newest_on_top: true
+      });
+    }
     });
 
 

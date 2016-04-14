@@ -37,7 +37,7 @@
       ?></td>
       <td>
         <button id="edit<?php echo $value->pic_id; ?>" class="btn btn-sm btn-primary" data-toggle="modal" onclick="editModalShow(<?php echo $value->pic_id; ?>)">Düzenle</button>
-        <button id="del<?php echo $value->pic_id; ?>" class="btn btn-sm btn-primary ">Sil</button>
+        <button id="del<?php echo $value->pic_id; ?>" class="btn btn-sm btn-primary " islev="sil">Sil</button>
       </td>
     </tr>
   <?php } ?>
