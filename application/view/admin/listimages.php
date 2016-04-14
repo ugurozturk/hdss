@@ -29,7 +29,7 @@
       <td><img src="<?php echo $value->thumbs_url; ?>" class="img-rounded" height="150" width="150"></td>
       <td><?php echo $value->pic_name; ?></td>
       <td><?php echo $value->big_url; ?></td>
-      <td><?php echo $value->thumbs_url; ?></td>
+      <td><?php echo $value->yayin_tarihi; ?></td>
       <td><?php  if($value->aktif){
         echo "aktif";
       }

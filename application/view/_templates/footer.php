@@ -1,11 +1,4 @@
-<!-- CSS -->
-<link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous" />
-<link rel="stylesheet" href="<?php echo URL; ?>assets/tether/css/tether.min.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo URL; ?>assets/justfiedgallery/css/justifiedGallery.min.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
-<link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" type="text/css" />
 
-<link rel="stylesheet" href="<?php echo URL; ?>assets/font-awesome/css/font-awesome.min.css" type="text/css" />
 
     <!-- jQuery, loaded in the recommended protocol-less way -->
     <!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
