@@ -1,5 +1,5 @@
 <div class="container-fluid" >
-  <div id="gallery" style="background-color: gray;">
+  <div id="gallery">
     <?php foreach ($pics as $pic) {?>
           <a href="<?php echo URL.'image?i='.$pic->pic_id ?>" title="<?php echo $pic->pic_name?>">
               <img src="<?php echo $pic->thumbs_url ?>" />

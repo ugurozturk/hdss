@@ -17,18 +17,18 @@ class Home extends Controller
     public function index()
     {
       if(isset($_GET["random"]) && isset($_GET["search"])){
-        $pics = $this->model->getSearchedRandomPics(htmlspecialchars($_GET["search"]));
+        $pics = $this->model->getAllActivePics(array("random" => true, "search" => $_GET["search"]));//(htmlspecialchars($_GET["search"]));
       }
       else if(isset($_GET["random"])){
         if(htmlspecialchars($_GET["random"]) === "true"){
-          $pics = $this->model->getAllActiveRandomPics();
+          $pics = $this->model->getAllActivePics(array("random" => true));
         }
         else{
           $pics = $this->model->getAllActivePics();
         }
       }
       else if(isset($_GET["search"])){
-          $pics = $this->model->getSearchedPics(htmlspecialchars($_GET["search"]));
+          $pics = $this->model->getAllActivePics(array("search" => $_GET["search"]));
       }
       else{
           $pics = $this->model->getAllActivePics();
@@ -42,7 +42,10 @@ class Home extends Controller
 
 
     public function devamigetir(){
-      $veri = $this->model->getNextActivePics();
+      if(isset($_POST["miktar"])){
+      $miktar = htmlspecialchars($_POST["miktar"]);
+    }
+      $veri = $this->model->getAllActivePics(array("skip" => $miktar));
       echo json_encode($veri);
     }
 

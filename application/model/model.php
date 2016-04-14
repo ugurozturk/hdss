@@ -166,53 +166,32 @@ class Model
         return $query->fetchAll();
     }
 
-    public function getAllActivePics()//Var
+    public function getAllActivePics($arguments = array())//Var
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY yayin_tarihi DESC LIMIT 30";
+      // set defaults
+        $arguments = array_merge(array(
+          "random" => false,
+          "search" => "",
+          "take" => 10,
+          "skip" => 0
+        ), $arguments);
 
-        $query = $this->db->prepare($sql);
-        $query->execute();
-        return $query->fetchAll();
-    }
-    public function getNextActivePics()//Var
-    {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY yayin_tarihi DESC LIMIT 30";
-
-        $query = $this->db->prepare($sql);
-        $query->execute();
-        return $query->fetchAll();
-    }
-    public function getAllActiveRandomPics()//Var
-    {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() ORDER BY yayin_tarihi DESC";
+        $random = $arguments["random"];
+        $search = $arguments["search"];
+        $take = $arguments["take"];
+        $skip = $arguments["skip"];
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() AND pic_name like '%$search%' ORDER BY yayin_tarihi DESC LIMIT $take OFFSET $skip";
 
         $query = $this->db->prepare($sql);
         $query->execute();
         $dizi = $query->fetchAll();
+        if($random){
         shuffle($dizi);
-        return array_slice($dizi,0,30,true);
-    }
-
-    public function getSearchedPics($search)//Var
-    {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND pic_name like '%$search%' AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC";
-
-
-        $query = $this->db->prepare($sql);
-        $query->execute();
-        return $query->fetchAll();
-    }
-
-    public function getSearchedRandomPics($search)//Var
-    {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND  pic_name like '%$search%' AND yayin_tarihi <= CURDATE() ORDER BY pic_id DESC  ";
-
-
-        $query = $this->db->prepare($sql);
-        $query->execute();
-        $dizi = $query->fetchAll();
-        shuffle($dizi);
-        return array_slice($dizi,0,30,true);
+        return array_slice($dizi,0,$take,true);
+        }
+        else {
+        return array_slice($dizi,0,$take,true);
+        }
     }
 
     public function getPicInfo($id)

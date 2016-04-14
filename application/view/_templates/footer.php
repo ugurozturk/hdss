@@ -9,13 +9,8 @@
 
     <!-- jQuery, loaded in the recommended protocol-less way -->
     <!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
-
-
     <!-- define the project's URL (to make AJAX calls possible, even when using this in sub-folders etc) -->
-
-
     <!-- our JavaScript -->
-    
     <script src="<?php echo URL; ?>js/disqus.js"></script>
     <script id="dsq-count-scr" src="//hdssonline.disqus.com/count.js" async></script>
     <script type="text/javascript" src="<?php echo URL; ?>assets/tether/js/tether.min.js"></script>

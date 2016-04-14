@@ -83,18 +83,19 @@ $(function() {
 function doldur(){
   $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
+      var lgnt = $(".jg-entry").length;
+      console.log(lgnt);
   $.ajax({
     type: "POST",
     url: url + "home/devamigetir/",
     dataType: 'json',
     data : {
+      miktar : lgnt
     },
     success: function(data){
       console.log("doldur success");
       $.each(data,function(index,value){
-        $('#gallery').append('<a href="'+url +'image?i='+ value.pic_id+'">' +
-            '<img src="'+value.thumbs_url+'" />' +
-            '</a>');
+        $('#gallery').append('<a href="'+url +'image?i='+ value.pic_id+'" title="'+value.pic_name+'"><img src="'+value.thumbs_url+'" /></a>');
       });
       $('#gallery').justifiedGallery('norewind');
     },
@@ -109,6 +110,9 @@ function doldur(){
         type: 'danger',
         newest_on_top: true
       });
+    },
+    done: function(data){
+      console.log("fnc bitti");
     }
   });
 }
