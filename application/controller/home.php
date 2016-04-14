@@ -41,13 +41,6 @@ class Home extends Controller
 
 
 
-    public function devamigetir(){
-      if(isset($_POST["miktar"])){
-      $miktar = htmlspecialchars($_POST["miktar"]);
-    }
-      $veri = $this->model->getAllActivePics(array("skip" => $miktar));
-      echo json_encode($veri);
-    }
 
     /**
      * PAGE: exampleone

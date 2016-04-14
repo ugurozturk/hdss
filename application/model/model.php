@@ -172,7 +172,7 @@ class Model
         $arguments = array_merge(array(
           "random" => false,
           "search" => "",
-          "take" => 10,
+          "take" => 20,
           "skip" => 0
         ), $arguments);
 

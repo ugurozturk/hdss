@@ -87,7 +87,7 @@ function doldur(){
       console.log(lgnt);
   $.ajax({
     type: "POST",
-    url: url + "home/devamigetir/",
+    url: url + "image/devamigetir/",
     dataType: 'json',
     data : {
       miktar : lgnt
