@@ -161,7 +161,7 @@ class Model
      */
     public function getAllPics($limit,$offset)
     {
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, yayin_tarihi, aktif FROM pics ORDER BY pic_id DESC LIMIT $limit OFFSET $offset";
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, yayin_tarihi, aktif FROM pics ORDER BY aktif ,yayin_tarihi DESC LIMIT $limit OFFSET $offset";
 
         $query = $this->db->prepare($sql);
         $query->execute();
