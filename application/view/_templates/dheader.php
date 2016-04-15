@@ -13,10 +13,18 @@
     <!-- please note: The JavaScript files are loaded in the footer to speed up page construction -->
     <!-- See more here: http://stackoverflow.com/q/2105327/1114320 -->
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous" />
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/tether/css/tether.min.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/justfiedgallery/css/justifiedGallery.min.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>css/style.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>assets/font-awesome/css/font-awesome.min.css" type="text/css" />
 
     <script src="<?php echo URL; ?>assets/jquery/jquery-2.2.1.min.js"></script>
-
+<script type="text/javascript" src="<?php echo URL; ?>assets/justfiedgallery/js/jquery.justifiedGallery.js"></script>
     <script type="text/javascript" src="<?php echo URL; ?>assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="<?php echo URL; ?>js/application.js"></script>
     <script>
         var url = "<?php echo URL; ?>";
     </script>
