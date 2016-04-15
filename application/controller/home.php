@@ -39,9 +39,6 @@ class Home extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
-
-
-
     /**
      * PAGE: exampleone
      * This method handles what happens when you move to http://yourproject/home/exampleone

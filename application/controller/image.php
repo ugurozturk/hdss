@@ -13,10 +13,10 @@ class Image extends Controller
       require APP . 'view/_templates/dheader.php';
       require APP . 'view/image/index.php';
       require APP . 'view/_templates/footer.php';
-}
-else{
-  header('location: ' . URL);
-}
+      }
+      else{
+        header('location: ' . URL);
+      }
     }
     else{
       header('location: ' . URL);

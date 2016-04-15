@@ -175,14 +175,17 @@ class Model
           "random" => false,
           "search" => "",
           "take" => 20,
-          "skip" => 0
+          "skip" => 0,
+          "category" =>1
         ), $arguments);
 
         $random = $arguments["random"];
         $search = $arguments["search"];
         $take = $arguments["take"];
         $skip = $arguments["skip"];
-        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() AND pic_name like '%$search%' ORDER BY yayin_tarihi DESC LIMIT $take OFFSET $skip";
+        $category = $arguments["category"];
+
+        $sql = "SELECT pic_id, pic_name, big_url, thumbs_url, aktif FROM pics WHERE aktif = true AND yayin_tarihi <= CURDATE() AND pic_category_id = '$category' AND pic_name like '%$search%' ORDER BY yayin_tarihi DESC LIMIT $take OFFSET $skip";
 
         $query = $this->db->prepare($sql);
         $query->execute();

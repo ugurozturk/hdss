@@ -44,6 +44,16 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo URL . "?random=true"; if(isset($_GET["search"])){ echo "&search=" . htmlspecialchars($_GET["search"]);} ?>">Random</a>
       </li>
+      <li class="nav-item btn-group">
+          <a class="dropdown-toggle nav-link " type="button" id="drpdownLists" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          List
+          </a>
+          <div class="dropdown-menu" aria-labelledby="drpdownLists">
+              <a class="dropdown-item" href="<?php echo URL.'?type=games'?>">Games</a>
+              <a class="dropdown-item" href="<?php echo URL.'?type=animes'?>">Animes</a>
+              <a class="dropdown-item" href="<?php echo URL.'?type=movtvseri'?>">Movies - Tv Series</a>
+          </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>
@@ -64,8 +74,5 @@
   <img alt="" border="0" src="https://www.paypalobjects.com/tr_TR/i/scr/pixel.gif" width="1" height="1">
   </form>
     </div>
-</div>
   </nav>
-
-
 </div>
