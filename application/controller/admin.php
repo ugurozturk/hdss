@@ -77,7 +77,6 @@ class Admin extends Controller
           else {
             $failed[$pozisyon] = '[{$file_name}] İzin verilen dosya boyutundan büyük';
           }
-
         }
         else {
           $failed[$pozisyon] = '[{$file_name}] izin verilen dosya tipi değil.';
@@ -89,6 +88,10 @@ class Admin extends Controller
         }
         print_r($uploaded);
       }
+      if(!empty($failed)){
+        print_r($failed);
+      }
+
     }
   }
   }
@@ -117,5 +120,67 @@ class Admin extends Controller
       $this->model->deleteImg($_POST["picid"]);
       echo json_encode(array('Result' => "OK"));
     }
+  }
+
+  public function delNonUsedImages(){
+    $bigdekiler = scandir($_SERVER['DOCUMENT_ROOT'] . '/public/img/big/');
+    $thumbdakiler = scandir($_SERVER['DOCUMENT_ROOT'] . '/public/img/thumbs/');
+    $databasedekiler = $this->model->getAllPics(999,0);
+    $deleted = array();
+    $failed = array();
+
+    for($i =0; $i<count($bigdekiler);$i++){
+
+      $sil = true;
+      foreach($databasedekiler as $pozisyon => $value){
+        $r =explode("/",$value->big_url);
+        $name=end($r);
+        if($name === $bigdekiler[$i]){
+          $sil = false;
+        }
+      }
+      if($sil === true){
+        $sonuc = unlink($_SERVER['DOCUMENT_ROOT'] . '/public/img/big/' . $bigdekiler[$i]);
+        if($sonuc){
+          array_push($deleted,'big/'.$bigdekiler[$i]);
+        }
+        else{
+          array_push($failed,'big/'.$bigdekiler[$i]);
+        }
+      }
+    }
+
+    for($i =0; $i<count($thumbdakiler);$i++){
+
+      $sil = true;
+      foreach($databasedekiler as $pozisyon => $value){
+        $r =explode("/",$value->thumbs_url);
+        $name=end($r);
+        if($name === $thumbdakiler[$i]){
+          $sil = false;
+        }
+      }
+      if($sil === true){
+        $sonuc = unlink($_SERVER['DOCUMENT_ROOT'] . '/public/img/thumbs/' . $thumbdakiler[$i]);
+        if($sonuc){
+          array_push($deleted,'thumbs/'.$thumbdakiler[$i]);
+        }
+        else{
+          array_push($failed,'thumbs/'.$thumbdakiler[$i]);
+        }
+      }
+    }
+
+    if(!empty($failed)){
+      echo "fails ";
+      print_r($failed);
+    }
+    if(!empty($deleted)){
+      echo "successfulls ";
+      print_r($deleted);
+    }
+    //var_dump($bigdekiler);
+
+    //var_dump($sonuc);
   }
 }
