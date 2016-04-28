@@ -323,7 +323,8 @@ class Model
       // useful for debugging: you can see the SQL behind above construction by using:
       // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
 
-      $query->execute($parameters);
+       $query->execute($parameters);
+       return $query->rowCount();
   }
 
   public function findUser($username,$psswrd){

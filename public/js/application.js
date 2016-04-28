@@ -79,8 +79,6 @@ $(function() {
     });
 
     $('button[islev="sil"]').on('click',function(){
-      console.log("del Çalıştı");
-
       if(confirm("Are you sure ?")){
     var deger =  $(this).attr("id").substr(3);
     $.ajax({
@@ -91,14 +89,25 @@ $(function() {
         picid:deger
       },
       success: function(data){
+        if(data.sonuc > 0){
         $.notify({
           icon: 'glyphicon glyphicon-success-sign',
           title: 'HDSS -',
-          message: 'Success of deleting image.',
+          message: data.sonuc + ' Each image deleted.',
         },{
           type: 'success',
           newest_on_top: true
         });
+        }else{
+           $.notify({
+          icon: 'glyphicon glyphicon-success-sign',
+          title: 'HDSS -',
+          message: 'Zero image found so Failed to delete.',
+        },{
+          type: 'danger',
+          newest_on_top: true
+        });
+        }
       },
       error: function(data){
         console.log("error >");
