@@ -44,6 +44,7 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo URL . "?random=true"; if(isset($_GET["search"])){ echo "&search=" . htmlspecialchars($_GET["search"]);} ?>">Random</a>
       </li>
+      <!-- do active it later
       <li class="nav-item btn-group">
           <a class="dropdown-toggle nav-link " type="button" id="drpdownLists" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           List
@@ -54,6 +55,7 @@
               <a class="dropdown-item" href="<?php echo URL.'?type=movtvseri'?>">Movies - Tv Series</a>
           </div>
       </li>
+      -->
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>
@@ -67,11 +69,11 @@
           <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/hdssonline/"><i class="fa fa-lg fa-facebook"></i></a></li>
           <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/hdssonline/"><i class="fa fa-lg fa-instagram"></i></a></li>
       </ul>
-      <form class="form-inline pull-xs-right" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-  <input type="hidden" name="cmd" value="_s-xclick">
-  <input type="hidden" name="hosted_button_id" value="MJKQXF29S7FW2">
-  <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
-  <img alt="" border="0" src="https://www.paypalobjects.com/tr_TR/i/scr/pixel.gif" width="1" height="1">
+  <form class="form-inline pull-right paypalbtn"   action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="MJKQXF29S7FW2">
+    <input type="image"style="" src="https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
+    <img alt="" border="0" src="https://www.paypalobjects.com/tr_TR/i/scr/pixel.gif" width="1" height="1">
   </form>
     </div>
   </nav>
